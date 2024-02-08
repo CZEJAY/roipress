@@ -35,7 +35,7 @@ const Siderbar = () => {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [toggleIsOpen]);
   return (
     <div
       className={clsx(

@@ -5,8 +5,8 @@ import MenuTrigger from './MenuTrigger'
 import UserButton from '../UserButton'
 import SearchInput from './SearchInput'
 import HomeLogo from './HomeLogo'
-import HomeLink from '../HomeLink'
-import { ModeToggle } from '../ThemeSwitch'
+// import HomeLink from '../HomeLink'
+// import { ModeToggle } from '../ThemeSwitch'
 
 const Navbar = () => {
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
             <div className="flex md:hidden"><MenuTrigger /></div>
             <div className="hidden md:flex items-center justify-between mr-5 w-full">
                 <HomeLogo isDashboard />
-                <HomeLink />
+                {/* <HomeLink /> */}
             </div>
 
         </div>
@@ -27,7 +27,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
-            <ModeToggle />
+            {/* <ModeToggle /> */}
             <UserButton />
         </div>
     </nav>
