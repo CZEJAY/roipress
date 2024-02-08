@@ -1,11 +1,10 @@
 import { CardWrapper } from "@/components/CardWrapper";
-import Icon from "@/components/Icons";
-import { homeRoutes } from "@/lib/homeRoutes";
+import { homeRoutes, onlineServices } from "@/lib/homeRoutes";
 import React from "react";
 
 const Page = () => {
   return (
-    <main className="flex flex-col w-full gap-5">
+    <main className="flex flex-col w-full relative gap-5">
         <div className="">
           <h1 className="text-xl font-bold">Cafe Services</h1>
         </div>
@@ -13,6 +12,7 @@ const Page = () => {
           {homeRoutes.map((route) => {
             return (
               <CardWrapper
+                hovercolor={route.hovercolor}
                 color={route.color}
                 content={route.content}
                 showfooter
@@ -29,11 +29,12 @@ const Page = () => {
             );
           })}
         </div>
-        <h1 className="text-xl font-bold">Online Sevices</h1>
-        <div className="flex flex-wrap gap-3 items-center w-full justify-center md:justify-start ">
-          {homeRoutes.map((route) => {
+        <h1 className="text-xl font-bold">Communities/Supports</h1>
+        <div className="flex flex-wrap gap-3 items-center w-full justify-start ">
+          {onlineServices.map((route) => {
             return (
               <CardWrapper
+                hovercolor={route.hovercolor}
                 color={route.color}
                 content={route.content}
                 showfooter
@@ -43,8 +44,7 @@ const Page = () => {
               >
                 <div className="">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempore quis hic, consequatur alias in ipsum, dolore aperiam
-                  maiores
+                  Tempore 
                 </div>
               </CardWrapper>
             );

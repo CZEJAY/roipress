@@ -3,6 +3,7 @@ import { Links } from "@/constants";
 import clsx from "clsx";
 import {
   ArrowLeftCircle,
+  Bolt,
   LucideArrowRightCircle,
   Settings,
 } from "lucide-react";
@@ -46,7 +47,7 @@ const Siderbar = () => {
       <div className="flex items-center pl-1">
         <div className="">
           <div className="flex  h-10 w-10 items-center justify-center rounded-full bg-primary">
-            <FaBolt className="text-light-1" />
+            <Bolt className="text-light-1" />
           </div>
         </div>
       </div>

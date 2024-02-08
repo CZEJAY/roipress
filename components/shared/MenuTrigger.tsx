@@ -30,7 +30,7 @@ const MenuTrigger = () => {
         <SheetHeader className="w-full">
           <SheetTitle>
             <div className="flex items-center gap-9">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/70">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
                 <FaBolt className="text-light-1" />
               </div>
               <div className="">Dashboard</div>
@@ -63,7 +63,7 @@ const MenuTrigger = () => {
                     {label}
                   </span>
                   {isActive && (
-                    <span className="absolute h-5 w-1 bg-dark-1 dark:bg-light-1 right-0 top-0.5 rounded-tl rounded-bl transition-all duration-300"></span>
+                    <span className="absolute h-5 w-1 bg-primary right-0 top-0.5 rounded-tl rounded-bl transition-all duration-300"></span>
                   )}
                 </Link>
               );

@@ -19,6 +19,7 @@ interface CardWrapperProps {
   content?: string;
   color?: string;
   showfooter?: boolean;
+  hovercolor?: string
 }
 
 export const CardWrapper = ({
@@ -28,14 +29,15 @@ export const CardWrapper = ({
   content: description,
   color,
   showfooter,
+  hovercolor
 }: CardWrapperProps) => {
   
   return (
-    <Card className="overflow-hidden w-full shadow-md relative sm:w-60 md:w-64 h-auto lg:w-96 z-10">
+    <Card className="overflow-hidden w-full shadow-md relative  md:w-64 lg:w-96 z-10 h-[370px] lg:h-[300px]">
       <CardHeader>
         <div className="flex items-center">
            <Icon className={clsx(
-            " text-3xl mr-4 rounded p-1",
+            " text-3xl mr-4 rounded text-light-1 p-1",
             !!color  ? `${color}` : ""
            )} size={40}/>
           <h1 className="font-bold text-lg leading-8 tracking-tight" aria-label={headerLabel}>{headerLabel}</h1>
@@ -46,7 +48,7 @@ export const CardWrapper = ({
       <CardFooter>
         {showfooter && (
           <>
-            <Button className={`ml-auto ${color} hover:bg-secondary/10`}>Get in touch</Button>
+            <Button className={`ml-auto ${color} ${hovercolor}`}>Get in touch</Button>
           </>
         )}
       </CardFooter>
