@@ -7,7 +7,7 @@ const Icon = ({ name, className, size }: {
 }) => {
   const LucideIcon = icons[name];
 
-  return <LucideIcon className={className} size={size} />;
+  return( <LucideIcon className={className} size={size} />);
 };
 
 export default Icon;

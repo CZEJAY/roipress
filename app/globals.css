@@ -114,7 +114,7 @@ B (255 */
     @apply sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-light-3 dark:border-r-dark-4 dark:bg-dark-2 bg-gray-200 pb-5 pt-28 max-md:hidden;
   }
   .leftsidebar1 {
-    @apply sticky left-0 top-0 z-20 flex h-screen max-md:hidden flex-col justify-between overflow-auto border-r border-r-gray-300 dark:border-r-dark-4 dark:bg-dark-2 bg-gray-200 pb-5 pt-8 w-24 items-center overflow-x-hidden;
+    @apply sticky left-0 top-0 z-40 flex h-screen max-md:hidden flex-col justify-between overflow-auto border-r border-r-gray-300 dark:border-r-dark-4 dark:bg-dark-2 bg-gray-200 pb-5 pt-8 w-24 items-center overflow-x-hidden;
   }
 
   .rightsidebar {
@@ -122,11 +122,11 @@ B (255 */
   }
 
   .topbar {
-    @apply fixed top-0 z-30 flex w-full items-center justify-between bg-gray-200 px-6 py-3
+    @apply fixed top-0  flex w-full items-center justify-between bg-gray-200 px-6 py-3
      dark:bg-dark-2 backdrop-blur-sm sm:backdrop-blur-lg text-white  border-b-light-3;
   }
   .topbar1 {
-    @apply fixed top-0 flex w-full items-center justify-between bg-gray-200 px-6 py-3 h-24
+    @apply fixed top-0 z-20 flex w-full items-center justify-between bg-gray-200 px-6 py-3 h-24
      dark:bg-dark-2 backdrop-blur-sm sm:backdrop-blur-lg text-white border md:pl-28;
   }
   

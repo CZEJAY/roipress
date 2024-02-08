@@ -28,7 +28,7 @@ const ModeSide = ({isMobile}: {isMobile?: true}) => {
             size={20}
             className={clsx(
               "cursor-pointer rounded-full w-11 h-12 p-3",
-              theme === "light" && "bg-emerald-500/70 text-light-1"
+              theme === "light" && "bg-primary text-light-1"
             )}
             onClick={() => setTheme("light")}
           />
@@ -36,7 +36,7 @@ const ModeSide = ({isMobile}: {isMobile?: true}) => {
             size={20}
             className={clsx(
               "cursor-pointer rounded-full w-11 h-12 p-3 ",
-              theme === "dark" && "bg-emerald-500/70 text-light-1",
+              theme === "dark" && "bg-primary text-light-1",
               theme !== "dark" && "text-neutral-500",
               isMobile && "rotate-180"
             )}

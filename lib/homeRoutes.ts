@@ -1,36 +1,82 @@
 import {
+  BookType,
   Briefcase,
   Github,
   HeartHandshakeIcon,
   Linkedin,
   NewspaperIcon,
+  Printer,
   SettingsIcon,
+  Sheet,
   UserCheck2,
   Users,
 } from "lucide-react";
-import { FaTelegramPlane, FaTools } from "react-icons/fa";
+import { FaIdCard, FaTelegramPlane, FaTools } from "react-icons/fa";
 
 export const homeRoutes = [
   {
-    name: "Available Jobs",
+    name: "Printing Job",
     link: "/dashboard/jobs",
-    icon: Briefcase,
+    icon: Printer,
+    content: "Manage your printing jobs.",
+    color: "bg-blue-500",
   },
   {
-    name: "Blog",
+    name: "Book Writing",
     link: "/dashboard/blog",
-    icon: NewspaperIcon,
+    icon: BookType,
+    content: "Write and manage your book chapters.",
+    color: "bg-purple-600",
   },
   {
-    name: "Get Hired",
+    name: "Design ID Cards",
     link: "/dashboard/create-dev",
-    icon: HeartHandshakeIcon,
+    icon: FaIdCard,
+    content: "Create a design for an ID card.",
+    color: "bg-green-700",
+  },
+  {
+    name: "Print Banners",
+    link: "/dashboard/create-dev",
+    icon: Sheet,
+    content: "Print  banner designs with Luzifer's Designer.",
+    color: "bg-red-800",
+  },
+];
+export const onlineServices = [
+  {
+    name: "Online",
+    link: "/dashboard/jobs",
+    icon: Printer,
+    content: "Manage your printing jobs.",
+    color: "bg-blue-500",
+  },
+  {
+    name: "Book Writing",
+    link: "/dashboard/blog",
+    icon: BookType,
+    content: "Write and manage your book chapters.",
+    color: "bg-purple-600",
+  },
+  {
+    name: "Design ID Cards",
+    link: "/dashboard/create-dev",
+    icon: FaIdCard,
+    content: "Create a design for an ID card.",
+    color: "bg-green-700",
+  },
+  {
+    name: "Print Banners",
+    link: "/dashboard/create-dev",
+    icon: Sheet,
+    content: "Print  banner designs with Luzifer's Designer.",
+    color: "bg-red-800",
   },
 ];
 
 export const sideBarLinks = [
   {
-    label: "Tools",
+    label: "Workspace",
     icon: FaTools,
   },
   {

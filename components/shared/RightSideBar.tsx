@@ -2,7 +2,7 @@ import { socialLinks } from "@/lib/homeRoutes";
 import { CheckCheck, Link2 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import RightCard from "../RightCard";
+// import RightCard from "../RightCard";
 
 const RightSideBar = () => {
   const socialLink = socialLinks;
@@ -13,7 +13,7 @@ const RightSideBar = () => {
           <CheckCheck size={20} />
           <p className="font-semibold">Recommended Jobs</p>
         </div>
-        <RightCard />
+        {/* <RightCard /> */}
       </div>
       <div className="flex w-full flex-col gap-6 items-center justify-between">
         <div className="flex flex-col gap-2 ">

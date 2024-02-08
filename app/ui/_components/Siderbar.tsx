@@ -12,12 +12,30 @@ import React from "react";
 import { FaBolt } from "react-icons/fa";
 import ModeSide from "./ModeSide";
 import { useTrigger } from "@/components/context/store/UseTrigger";
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Siderbar = () => {
   const params = usePathname();
   const { toggleIsOpen, isOpen } = useTrigger();
   // console.log(isOpen);
+  const [open, setOpen] = React.useState(false);
 
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "x" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        toggleIsOpen();
+      }
+    };
+
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
   return (
     <div
       className={clsx(
@@ -27,7 +45,7 @@ const Siderbar = () => {
     >
       <div className="flex items-center pl-1">
         <div className="">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/70">
+          <div className="flex  h-10 w-10 items-center justify-center rounded-full bg-primary">
             <FaBolt className="text-light-1" />
           </div>
         </div>
@@ -67,7 +85,7 @@ const Siderbar = () => {
                 </span>
               </div>
               {isActive && (
-                <span className="absolute h-7 w-1 bg-emerald-500/70 right-0 top-[11.5px] rounded-tl rounded-bl transition-all duration-300"></span>
+                <span className="absolute h-7 w-1 bg-primary right-0 top-[11.5px] rounded-tl rounded-bl transition-all duration-300"></span>
               )}
             </Link>
           );
@@ -81,13 +99,20 @@ const Siderbar = () => {
       <div className="flex gap-6 flex-col text-neutral-500 w-full pl-10">
         <div className="flex items-center gap-9">
           <div className="">
-            <LucideArrowRightCircle
-              onClick={toggleIsOpen}
-              className={clsx(
-                "cursor-pointer rotate-0 hover:dark:text-light-1 hover:text-dark-1 transition-all duration-200",
-                isOpen && "rotate-180"
-              )}
-            />
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <LucideArrowRightCircle
+                    onClick={toggleIsOpen}
+                    className={clsx(
+                      "cursor-pointer rotate-0 hover:dark:text-light-1 hover:text-dark-1 transition-all duration-200",
+                      isOpen && "rotate-180"
+                    )}
+                  />
+                </TooltipTrigger>
+                <TooltipContent>⌘ x toggle sidebar </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
           {isOpen && (
             <span

@@ -6,6 +6,7 @@ import {
   Package,
   UsersRoundIcon,
 } from "lucide-react";
+import { FaTools } from "react-icons/fa";
 
 export const Links = [
   {
@@ -14,9 +15,9 @@ export const Links = [
     label: "Dashboard",
   },
   {
-    icon: LucideTrendingUp,
-    pathname: "/ui/stats",
-    label: "Stats",
+    icon: FaTools,
+    pathname: "/ui/workspace",
+    label: "Workspace",
   },
   {
     icon: UsersRoundIcon,

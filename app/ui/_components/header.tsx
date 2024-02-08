@@ -1,18 +1,19 @@
 "use client"
 import UserButton from "@/components/UserButton";
+import Calender from "@/components/shared/Calender";
 import MenuTrigger from "@/components/shared/MenuTrigger";
 import SearchInput from "@/components/shared/SearchInput";
 import { Input } from "@/components/ui/input";
-import { BellIcon, Calendar, ChevronDown, MenuSquare } from "lucide-react";
+import { BellIcon,  ChevronDown, } from "lucide-react";
 import { useSession } from "next-auth/react";
 import React from "react";
 
 const Header =  () => {
   const { data } = useSession()
   return (
-    <div className="topbar1">
+    <nav className="topbar1">
       <div className="hidden lg:flex text-zinc-800 dark:text-light-1 text-xl font-semibold font-['Plus Jakarta Sans'] leading-7">
-        <h1 className="text-2xl">Dashboard</h1>
+        <h1 className="text-2xl">Roicomsat</h1>
       </div>
 
       <div className="justify-between md:justify-end gap-10 items-center flex w-full lg:w-[70%]  ">
@@ -22,12 +23,7 @@ const Header =  () => {
         <div className="max-sm:hidden">
           <SearchInput />
         </div>
-        <div className=" hidden lg:flex text-zinc-800 dark:text-light-1 gap-2 items-center justify-center">
-          <Calendar className=" " />
-          <span className=" text-sm font-extrabold font-['Inter'] leading-snug">
-            November 15, 2024
-          </span>
-        </div>
+        <Calender />
         <div className="flex items-center justify-center border p-1 border-neutral-500/20 rounded-full text-zinc-800 dark:text-light-1">
           <BellIcon />
         </div>
@@ -53,7 +49,7 @@ const Header =  () => {
           <div className="w-5 h-5 relative" />
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
