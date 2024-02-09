@@ -1,5 +1,11 @@
 "use client";
-import React, { useCallback, useEffect, useState, useTransition } from "react";
+import React, {
+  Suspense,
+  useCallback,
+  useEffect,
+  useState,
+  useTransition,
+} from "react";
 import { CardWrapper } from "./CardWrapper";
 
 import BeatLoader from "react-spinners/BeatLoader";
@@ -14,47 +20,47 @@ const VerificationForm = () => {
   const token = useSearchParams().get("token");
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
-  const [isPending, startTransition] = useTransition()
-
+  const [isPending, startTransition] = useTransition();
 
   const onSubmit = useCallback(() => {
-    if(!token) return setError("Missing token")
+    if (!token) return setError("Missing token");
 
     startTransition(() => {
-      newVerification(token)
-      .then((data) => {
-        if(data?.error) setError(data.error)
-        if(data?.success) setSuccess(data.success)
-      })
-    })
-  }, [token, error, success])
+      newVerification(token).then((data) => {
+        if (data?.error) setError(data.error);
+        if (data?.success) setSuccess(data.success);
+      });
+    });
+  }, [token, error, success]);
 
   useEffect(() => {
-    onSubmit()
-  }, [])
+    onSubmit();
+  }, []);
 
   return (
-    <div className="w-full flex justify-center">
-      <CardWrapper
-        headerLabel="Just a sec, we are verifying your email!"
-        backButtonHref="/auth/login"
-        backButtonLabel="Login"
-      >
-        <div className="w-full flex flex-col gap-4 justify-center  p-4 rounded-lg ">
-          <div className="flex flex-col gap-2 w-full justify-center items-center">
-            {!success && !error && (
-              <BeatLoader
-                className=""
-                size={20}
-                color={theme === "dark" ? "#fff" : "#000"}
-              />
-            )}
-            <FormSuccess message={success} />
-            {!success && <FormError message={error} />}
+    <Suspense>
+      <div className="w-full flex justify-center">
+        <CardWrapper
+          headerLabel="Just a sec, we are verifying your email!"
+          backButtonHref="/auth/login"
+          backButtonLabel="Login"
+        >
+          <div className="w-full flex flex-col gap-4 justify-center  p-4 rounded-lg ">
+            <div className="flex flex-col gap-2 w-full justify-center items-center">
+              {!success && !error && (
+                <BeatLoader
+                  className=""
+                  size={20}
+                  color={theme === "dark" ? "#fff" : "#000"}
+                />
+              )}
+              <FormSuccess message={success} />
+              {!success && <FormError message={error} />}
+            </div>
           </div>
-        </div>
-      </CardWrapper>
-    </div>
+        </CardWrapper>
+      </div>
+    </Suspense>
   );
 };
 

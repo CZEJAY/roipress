@@ -77,110 +77,115 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   };
 
   return (
-    <div className="flex justify-center w-full">
-      <CardWrapper
-        headerLabel={props.label as string}
-        backButtonLabel="Already have an account?"
-        backButtonHref="/auth/login"
-        showfooter
-        showSocial
-      >
-        <div className={cn("grid gap-6", className)} {...props}>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-              <div className="grid gap-2">
-
-                    <div className="grid gap-1">
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel htmlFor="email">Email</FormLabel>
-                            <FormControl>
-                              <Input 
+    <React.Suspense>
+      <div className="flex justify-center w-full">
+        <CardWrapper
+          headerLabel={props.label as string}
+          backButtonLabel="Already have an account?"
+          backButtonHref="/auth/login"
+          showfooter
+          showSocial
+        >
+          <div className={cn("grid gap-6", className)} {...props}>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)}>
+                <div className="grid gap-2">
+                  <div className="grid gap-1">
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel htmlFor="email">Email</FormLabel>
+                          <FormControl>
+                            <Input
                               id="email"
                               className="focus:ring-transparent focus-visible:ring-offset-0 focus-visible:ring-2"
-                              placeholder="name@gmail.com" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    <div className="grid gap-1">
-                      <FormField
-                        control={form.control}
-                        name="username"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel htmlFor="username" >Username</FormLabel>
-                            <FormControl>
-                              <Input 
+                              placeholder="name@gmail.com"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div className="grid gap-1">
+                    <FormField
+                      control={form.control}
+                      name="username"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel htmlFor="username">Username</FormLabel>
+                          <FormControl>
+                            <Input
                               id="username"
                               className="focus:ring-transparent focus-visible:ring-offset-0 focus-visible:ring-2"
-                              placeholder="username123" {...field} />
-
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    <div className="grid gap-1 mb-2">
-                      <FormField
-                        control={form.control}
-                        name="password"
-                        render={({ field }) => (
-                          <FormItem className="relative">
-                            <FormLabel htmlFor="password" >Password</FormLabel>
-                            <FormControl className="relative">
-                              <Input
-                                className="focus:ring-transparent focus-visible:ring-offset-0 focus-visible:ring-2"
-                                id="password"
-                                type={passwordId}
-                                placeholder="******"
-                                {...field}
-                              />
-                            </FormControl>
-                            {isShowPassword ? (
-                              <EyeIcon
-                                className="absolute right-0 top-6  flex items-center cursor-pointer justify-center px-2"
-                                size={37}
-                                onClick={() => {
-                                  setIsShowPassword(false);
-                                  togglePassWordType();
-                                }}
-                              />
-                            ) : (
-                              <EyeOffIcon
-                                className="absolute right-0 top-6  flex items-center  cursor-pointer justify-center px-2"
-                                size={37}
-                                onClick={() => {
-                                  setIsShowPassword(true);
-                                  togglePassWordType();
-                                }}
-                              />
-                            )}
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                <FormError message={errMessage} />
-                <Button disabled={isLoading}
-                className="gradient text-gray-50"
-                >
-                  {isLoading && (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  )}
-                  Create account
-                </Button>
-              </div>
-            </form>
-          </Form>
-        </div>
-      </CardWrapper>
-    </div>
+                              placeholder="username123"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div className="grid gap-1 mb-2">
+                    <FormField
+                      control={form.control}
+                      name="password"
+                      render={({ field }) => (
+                        <FormItem className="relative">
+                          <FormLabel htmlFor="password">Password</FormLabel>
+                          <FormControl className="relative">
+                            <Input
+                              className="focus:ring-transparent focus-visible:ring-offset-0 focus-visible:ring-2"
+                              id="password"
+                              type={passwordId}
+                              placeholder="******"
+                              {...field}
+                            />
+                          </FormControl>
+                          {isShowPassword ? (
+                            <EyeIcon
+                              className="absolute right-0 top-6  flex items-center cursor-pointer justify-center px-2"
+                              size={37}
+                              onClick={() => {
+                                setIsShowPassword(false);
+                                togglePassWordType();
+                              }}
+                            />
+                          ) : (
+                            <EyeOffIcon
+                              className="absolute right-0 top-6  flex items-center  cursor-pointer justify-center px-2"
+                              size={37}
+                              onClick={() => {
+                                setIsShowPassword(true);
+                                togglePassWordType();
+                              }}
+                            />
+                          )}
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <FormError message={errMessage} />
+                  <Button
+                    disabled={isLoading}
+                    className="gradient text-gray-50"
+                  >
+                    {isLoading && (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    )}
+                    Create account
+                  </Button>
+                </div>
+              </form>
+            </Form>
+          </div>
+        </CardWrapper>
+      </div>
+    </React.Suspense>
   );
 }

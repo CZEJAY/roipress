@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import { useForm } from "react-hook-form";
-import { useState, useTransition } from "react";
+import { Suspense, useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -50,47 +50,49 @@ export const NewPasswordForm = () => {
   };
 
   return (
-    <div className="flex w-full justify-center">
-      <CardWrapper
-        headerLabel="Enter a new password"
-        backButtonLabel="Back to login"
-        backButtonHref="/auth/login"
-      >
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="space-y-4">
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input
-                        className="focus:ring-transparent focus-visible:ring-offset-0 focus-visible:ring-2"
-                        {...field}
-                        disabled={isPending}
-                        placeholder="******"
-                        type="password"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <FormError message={error} />
-            <FormSuccess message={success} />
-            <Button
-              disabled={isPending}
-              type="submit"
-              className="w-full gradient text-gray-50"
-            >
-              Reset password
-            </Button>
-          </form>
-        </Form>
-      </CardWrapper>
-    </div>
+    <Suspense>
+      <div className="flex w-full justify-center">
+        <CardWrapper
+          headerLabel="Enter a new password"
+          backButtonLabel="Back to login"
+          backButtonHref="/auth/login"
+        >
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Password</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="focus:ring-transparent focus-visible:ring-offset-0 focus-visible:ring-2"
+                          {...field}
+                          disabled={isPending}
+                          placeholder="******"
+                          type="password"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <FormError message={error} />
+              <FormSuccess message={success} />
+              <Button
+                disabled={isPending}
+                type="submit"
+                className="w-full gradient text-gray-50"
+              >
+                Reset password
+              </Button>
+            </form>
+          </Form>
+        </CardWrapper>
+      </div>
+    </Suspense>
   );
 };
