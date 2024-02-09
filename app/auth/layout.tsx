@@ -1,10 +1,11 @@
 import React from "react";
 import "../globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import AuthContext from "@/context/AuthContext";
-import FloatingMode from "@/components/FloatingMode";
+
 import Welcome from "@/components/Welcome";
 import { Metadata } from "next";
+import { ThemeProviderComponent } from "@/components/context/ThemeProvider";
+import AuthContext from "@/components/context/AuthContext";
+import FloatingMode from "@/components/FloatingMode";
 
 export const metadata: Metadata = {
   title: "Roicomsat | Authentication",
@@ -20,14 +21,14 @@ export default function AuthLayout({
   return (
     <html lang="en">
       <body className="layout-bg">
-        <ThemeProvider
+        <ThemeProviderComponent
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
           <AuthContext>
-            <div className="container relative flex h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+            <div className="container relative flex h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
               <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
                 <div className="absolute inset-0 bg-black" />
                 <div className="relative z-20 flex items-center text-lg font-medium">
@@ -53,7 +54,7 @@ export default function AuthLayout({
             </div>
           </AuthContext>
           <FloatingMode />
-        </ThemeProvider>
+        </ThemeProviderComponent>
       </body>
     </html>
   );

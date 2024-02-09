@@ -197,5 +197,5 @@ B (255 */
 }
 
 .gradient{
-  @apply bg-gradient-to-r from-violet-500 via-primary to-pink-400
+  @apply bg-gradient-to-r from-violet-500 via-pink-800 to-pink-400
 }
