@@ -28,19 +28,21 @@ export default function AuthLayout({
           disableTransitionOnChange
         >
           <AuthContext>
-            <div className="container relative flex h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-              <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
-                <div className="absolute inset-0 bg-black" />
-                <div className="relative z-20 flex items-center text-lg font-medium">
+            <div className="container relative flex h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 text-dark-1 dark:text-light-1">
+              <div className="relative hidden h-full flex-col  p-10 text-white lg:flex">
+                <div className="absolute inset-0" />
+                <div className="relative z-20 flex items-center text-dark-1 dark:text-light-1 text-lg font-medium">
                   Roicomsat Inc
                 </div>
+                <div className="my-auto">
                 <Welcome />
+                </div>
                 <div className="relative z-20 mt-auto">
                   <blockquote className="space-y-2">
-                    <p className="text-lg">
+                    <p className="text-lg text-dark-1 dark:text-light-1">
                       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus ut ullam culpa esse animi illum, corrupti qui quae nam saepe alias ipsa a cupiditate inventore laudantium iure non facilis velit.
                     </p>
-                    <footer className="text-sm">
+                    <footer className="text-sm text-dark-1 dark:text-light-1">
                       &copy; 2030 Roicomsat. All rights reserved.
                     </footer>
                   </blockquote>

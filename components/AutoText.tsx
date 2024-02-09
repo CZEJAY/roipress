@@ -1,11 +1,13 @@
+import clsx from 'clsx';
 import { useState, useEffect } from 'react';
 
 interface AutoTextProps {
   textArray: string[];
   speed: number;
+  className?: string;
 }
 
-const AutoText: React.FC<AutoTextProps> = ({ textArray, speed }) => {
+const AutoText: React.FC<AutoTextProps> = ({ textArray, speed, className }) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   // console.log(textArray);
@@ -30,7 +32,10 @@ const AutoText: React.FC<AutoTextProps> = ({ textArray, speed }) => {
     return () => clearInterval(interval);
   }, [displayText, currentIndex, textArray, speed]);
 
-  return <span className={"autoText !border-r-blue-500 !text-[1.5rem] sm:text-[2.95rem]"}>{displayText}</span>;
+  return <span className={clsx(
+    "autoText text-dark-1 dark:text-light-1 !border-r-blue-500 !text-[1.5rem] sm:text-[2.95rem] ",
+    !!className && className
+  )}>{displayText}</span>;
 };
 
 export default AutoText;
