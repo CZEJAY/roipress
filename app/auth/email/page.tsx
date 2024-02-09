@@ -1,7 +1,11 @@
+"use client"
 import EmailForm from "@/components/EmailForm";
+import { Suspense } from "react";
 
 export default function EmailPage() {
     return (
-        <EmailForm />
+        <Suspense>
+            <EmailForm />
+        </Suspense>
     )
 }

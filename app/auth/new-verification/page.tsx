@@ -1,12 +1,13 @@
+"use client"
 import React from 'react'
 import VerificationForm from '@/components/auth/verificationForm'
 
 const page = () => {
   return (
     <>
-      <div className="">
+      <React.Suspense >
           <VerificationForm />
-        </div>
+        </React.Suspense>
     </>
   )
 }

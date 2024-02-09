@@ -1,13 +1,13 @@
-
+"use client"
 import React from "react";
 import { ErrorCard } from "@/components/auth/error-card";
 
 const page = () => {
   return (
     <>
-      <div className="">
+      <React.Suspense fallback={<div>Loading...</div>}>
         <ErrorCard />
-      </div>
+      </React.Suspense>
     </>
   );
 };

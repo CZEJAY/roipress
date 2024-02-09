@@ -5,9 +5,9 @@ import { NewPasswordForm } from "@/components/auth/new-password-form";
 const page = () => {
   return (
     <>
-      <div className="">
+      <React.Suspense  fallback={<div>Loading...</div>}>
         <NewPasswordForm />
-      </div>
+      </React.Suspense>
     </>
   );
 };

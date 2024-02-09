@@ -22,7 +22,7 @@ export const ErrorCard = () => {
             )}
           >
             {netWorkError && (
-              <p className="text-sm">Please check your internet connection</p>
+              <p className="text-sm">Please check your internet connection. If the issue persists, please contact support.</p>
             )}
             <AlertTriangleIcon className="text-destructive animate-pulse" />
           </div>

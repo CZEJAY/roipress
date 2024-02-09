@@ -1,9 +1,12 @@
+"use client"
 import { UserAuthForm } from "@/components/auth/register";
+import React from "react";
 
 
 export default function AuthenticationPage() {
   return (
     <>
+      <React.Suspense>
       <div className="lg:p-8">
         <UserAuthForm
           label="Enter your email below to create your account"
@@ -11,6 +14,7 @@ export default function AuthenticationPage() {
           showsocial="true"
         />
       </div>
+      </React.Suspense>
     </>
   );
 }

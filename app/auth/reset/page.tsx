@@ -10,9 +10,9 @@ import ResetForm from "@/components/auth/ResetForm";
 const page = () => {
   return (
     <>
-      <div className="">
+      <React.Suspense>
         <ResetForm />
-      </div>
+      </React.Suspense>
     </>
   );
 };

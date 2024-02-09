@@ -5,9 +5,9 @@ import Login from '@/components/auth/Login'
 const page = () => {
   return (
     <>
-      <div className="">
+      <React.Suspense>
           <Login />
-        </div>
+        </React.Suspense>
     </>
   )
 }
