@@ -10,7 +10,7 @@ import AuthContext from "@/components/context/AuthContext";
 export const metadata: Metadata = {
   title: "Roicomsat",
   description: "A social network for developers.",
-  icons: "/light.jpg",
+  icons: "/logo.png",
 };
 
 export default async function RootLayout({

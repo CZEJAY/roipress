@@ -29,7 +29,7 @@ export const CardWrapper = ({
   showfooter
 }: CardWrapperProps) => {
   return (
-    <Card className="overflow-hidden min-w-[330px] shadow-md relative">
+    <Card className="overflow-hidden min-w-[330px] shadow-xl relative">
       <CardHeader>
         <Header label={headerLabel} />
       </CardHeader>
