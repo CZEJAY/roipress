@@ -4,8 +4,6 @@ import React from "react";
 import { Bolt, Plus } from "lucide-react";
 import { ModeToggle } from "@/components/ThemeSwitch";
 import Link from "next/link";
-import { SignedIn, SignedOut } from "@/components/SignedIn";
-// import UserButton from "@/components/UserButton";
 import "../../globals.css"
 
 const Header = () => {
@@ -28,7 +26,7 @@ const Header = () => {
         </span>
       </Link>
 
-      <SignedIn>
+      
         <div className=" flex items-center gap-1">
           <Link href={"/auth/sign-up"}>
             <Button
@@ -52,7 +50,7 @@ const Header = () => {
             <ModeToggle />
           </div>
         </div>
-      </SignedIn>
+      
 
       
     </nav>
